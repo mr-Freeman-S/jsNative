@@ -95,7 +95,7 @@ console.log(deepCopyStudents)
 
 //6b. Объедините массивы deepCopyStudents и topStudents так,
 //чтоб сохранился порядок сортировки (spread-оператор || concat)
-let newDeepCopyStudents = [ ...topStudents,...deepCopyStudents];
+let newDeepCopyStudents = [...topStudents, ...deepCopyStudents];
 console.log(newDeepCopyStudents)
 
 
@@ -162,9 +162,7 @@ console.log(scoresSum)
 // значением которого является массив имён всех остальных студентов из массива students,
 // за исключением собственного имени студента. Т.е. в друзьях у Боба Боба быть не должно.
 const addFriends = (students) => {
-    return students.map(e => {
-        return {...e, friends: students.filter(el => el.name !== e.name && el.name)}
-    })
+    return students.map(e => ({...e, friends: students.filter(el => el.name !== e.name && el.name)}))
 }
 console.log(addFriends(students));
 
